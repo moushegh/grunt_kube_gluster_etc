@@ -11,9 +11,19 @@ packages:
   - python3-boto
   - fail2ban
   - awscli
+  - glusterfs-server
+  - glusterfs-client
+  - thin-provisioning-tools
+
+write_files:
+  - path: /home/ubuntu/glusterfs.sh
+    encoding: b64
+    permissions: 0777
+    content: ${gluster_sh}
 
 runcmd:
-  - echo "hello world"
+  - /home/ubuntu/glusterfs.sh ${is_master}
+
 
 
 

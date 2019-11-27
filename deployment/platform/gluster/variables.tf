@@ -3,22 +3,22 @@ variable infra {
 }
 
 variable gluster_cluster_count {
-  type = string
+  type    = string
   default = 0
 }
 
 variable gluster_cluster_prefix {
-  type = string
+  type    = string
   default = ""
 }
 
 variable gluster_ebs_size {
-  type = number
+  type    = number
   default = 1
 }
 
 variable gluster_instance_type {
-  type = string
+  type    = string
   default = "t3.small"
 }
 
@@ -27,5 +27,9 @@ variable ssh_key_name {
 }
 
 variable gluster_ec2_ami {
+  type = string
+}
+
+variable gluster_volume_name {
   type = string
 }

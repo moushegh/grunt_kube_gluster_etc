@@ -1,6 +1,7 @@
 resource aws_security_group private {
   name        = "${var.gluster_cluster_prefix}-private"
   description = "security group for var.gluster_cluster_prefix"
+  vpc_id      = var.infra.vpc_id
 }
 
 resource aws_security_group_rule allow_all_out_internal {

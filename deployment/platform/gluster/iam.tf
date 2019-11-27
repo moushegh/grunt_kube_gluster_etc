@@ -4,7 +4,7 @@ resource aws_iam_instance_profile ec2 {
 }
 
 resource aws_iam_role ec2 {
-  name = "gluster"
+  name               = "gluster"
   assume_role_policy = data.aws_iam_policy_document.assume_role_ec2.json
 }
 
