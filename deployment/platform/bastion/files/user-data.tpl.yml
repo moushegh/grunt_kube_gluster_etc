@@ -1,0 +1,19 @@
+#cloud-config
+package_upgrade: true
+package_update: true
+
+packages:
+  - wget
+  - git
+  - mc
+  - ntp
+  - python3-pip
+  - python3-boto
+  - fail2ban
+  - awscli
+
+runcmd:
+  - echo "hello world"
+
+
+
