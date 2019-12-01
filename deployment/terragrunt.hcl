@@ -18,10 +18,15 @@ inputs = {
   #vpc and route53 related
   zone_name = "virtyhost.com."
 
+  #consul-vault related
+  ecs_cluster_name = "consul-vault"
+  ecs_cluster_create = true
+
+
   #platform - bastion related
   bastion_name = "bastion"
   bastion_ec2_ami = "ami-0062c497b55437b01" #ubuntu 16.04
-  bastion_instance_size = "t3.small" #I <3 this instance type 
+  bastion_instance_size = "t3.small" #I <3 this instance type
 
   #platform - glusterfs related
   gluster_cluster_prefix = "gl"
