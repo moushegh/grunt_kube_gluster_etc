@@ -1,0 +1,31 @@
+#cloud-config
+package_upgrade: true
+package_update: true
+
+packages:
+  - wget
+  - git
+  - mc
+  - ntp
+  - python3-pip
+  - python3-boto
+  - fail2ban
+  - awscli
+  - glusterfs-client
+  - docker.io
+  
+runcmd:
+  - hostnamectl set-hostname ${hostname}
+  - mkdir -p /kube
+  - echo "" >> /etc/fstab
+  - echo "gl-node-0.virtyhost.com:/kube /kube glusterfs defaults,_netdev,backupvolfile-server=gl-node-1.virtyhost.com 0 0" >> /etc/fstab
+  - mount -a
+  - systemctl enable docker
+  - curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
+  - apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+  - apt update
+  - apt -y install kubeadm
+
+
+
+
